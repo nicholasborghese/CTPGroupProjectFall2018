@@ -56,7 +56,7 @@ class Login extends React.Component {
           
           <p>You must log in to view the page at {from.pathname}</p>
           <input type ="text" placeholder = "email" value = {this.state.email} onChange = {this.emailChanged} />
-          <input type = "text" placeholder = "password" value = {this.state.password} onChange = {this.passwordChanged} /> 
+          <input type = "password" placeholder = "password" value = {this.state.password} onChange = {this.passwordChanged} /> 
           <button onClick={this.login}>Log in</button>
           {this.state.error && <div>{this.state.error}</div>}
         </div>
