@@ -1,5 +1,6 @@
 const Auth = {
     isAuthenticated: false, 
+    activeUser : "",
     loginAuth(email,password, cb) {
         
         return fetch('/auth/login', {
@@ -21,6 +22,8 @@ const Auth = {
             
         }).then(body =>{
             console.log(body);
+            this.activeUser = body.firstName + " " + body.lastName;
+            console.log(this.activeUser);
             
         });   
     },
@@ -53,6 +56,7 @@ const Auth = {
     signout(cb) {
       this.isAuthenticated = false;
       setTimeout(cb, 100);
+      this.activeUser = "";
     }
   };
 
