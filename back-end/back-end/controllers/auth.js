@@ -29,8 +29,11 @@ router.post('/login',
       password: req.body.password,
     }).then((user) => {
       req.login(user, () =>
-        res.json({ msg: "user created" })
-      );
+        res.json({ msg: "user created",
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        email: req.user.email }
+      ));
     }).catch(() => {
       res.status(400).json({ msg: "error creating user" });
       

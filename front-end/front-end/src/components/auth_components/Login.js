@@ -60,13 +60,13 @@ class Login extends React.Component {
       <Emoji style = {{fontSize : "65px"}}className ="align-text-center h1"text = "Login 🍔" />
       <div className = " pt-5 container-fluid">
       <div className="form-group row col-med-6 ">
-      <label for="email" className="col-sm-2 offset-sm-2 col-form-label">Email</label>
+      <label className="col-sm-2 offset-sm-2 col-form-label">Email</label>
       <div className="col-sm-5">
         <input type="email" className="form-control" id="email" value={this.state.email} onChange={this.emailChanged} placeholder="Email"/>
       </div>
       </div>
      <div className="form-group row col-med-6">
-    <label for="password" className="col-sm-2 offset-sm-2 col-form-label">Password</label>
+    <label  className="col-sm-2 offset-sm-2 col-form-label">Password</label>
     <div className="col-sm-5">
       <input type="password" className="form-control" id="password" value={this.state.password} onChange={this.passwordChanged} placeholder="Password"/>
     </div>
