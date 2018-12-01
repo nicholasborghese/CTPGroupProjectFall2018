@@ -29,7 +29,7 @@ function Main(props) {
                 </button>
                 <div className=" text-left collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item"><Link className="navbar-brand nav-link" to="/public" >Public Page</Link></li>
+                        <li className="nav-item"><Link className="navbar-brand nav-link" to="/public" >Home</Link></li>
                         <li className="nav-item" ><Link className="navbar-brand nav-link" to="/protected">Protected Page</Link></li>
                         <li className="nav-item"><Link className="navbar-brand nav-link" to="/login">Login</Link></li>
                         <li className="nav-item "><Link className=" navbar-brand nav-link" to="/signup">Sign Up</Link></li>
