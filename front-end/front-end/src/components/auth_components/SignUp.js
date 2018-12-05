@@ -93,7 +93,7 @@ class SignUp extends React.Component {
           </div>
           <div className="form-group row">
             <div className="col-sm-6">
-              <button type="submit" onClick={this.signUp} className="btn btn-primary ">Sign in</button>
+              <button type="submit" onClick={this.signUp} className="btn btn-primary ">Sign Up</button>
             </div>
           </div>
           {error && <div><Emoji className="text-center p text-danger" text={error} /></div>}

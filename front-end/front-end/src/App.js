@@ -7,7 +7,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Main from "./components/auth_components/Main";
-import Public from "./components/auth_components/Public";
+import Home from "./components/auth_components/Home";
 import Protected from "./components/auth_components/Protected";
 import Login from "./components/auth_components/Login";
 import PrivateRoute from "./components/auth_components/PrivateRoute";
@@ -23,7 +23,7 @@ class App extends Component {
       <Main>
       {/* All routes of the application */}
       <Switch>
-      <Route path = "/public" component = {Public}></Route>
+      <Route path = "/home" component = {Home}></Route>
       <PrivateRoute path="/protected" component={Protected}/>
       <Route path="/signout" component={SignOut}/>
       <Route path = "/login" component = {Login}></Route>
