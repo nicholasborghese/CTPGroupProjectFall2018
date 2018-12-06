@@ -1,28 +1,53 @@
 import React from "react";
-import yelp from 'yelp-fusion';
-import axios from 'axios';
+import Restaurant from "./Restaurant"
+import {
+    Redirect, Route
+} from 'react-router-dom';
 
-//import Auth from "./Auth";
+// home page of website
 class Home extends React.Component {
-    state = {
-        filter: "",
-        input: "",
-        data: [],
-    };
-    // event handlers
-    filterChanged(e){
-        this.setState({filter : e.target.value});
+    constructor(props) {
+        super(props);
+        this.state = {
+            filter: "",
+            input: "",
+            data: "",
+            error: "",
+            shouldRedirect: false, // only on submit should user be redirected
+        };
     }
-    
-    // the input refers to the value typed in the searchbar
-    inputChanged(e){
-        this.setState({input : e.target.value});
+
+    // method to check if fields are empty
+    isEmptyFields = () => {
+        if (this.state.filter === "" || this.state.input === "") {
+            this.setState({ error: "Filter or Search Bar cannot be empty" });
+            return true;
+        }
+        return false;
+    }
+    // event handlers
+    // drop down
+    filterChanged = (e) => {
+        console.log(e.target.value)
+        this.setState({ filter: e.target.value });
+    }
+    // search bar
+    inputChanged = (e) => {
+        this.setState({ input: e.target.value });
+    }
+    // action when user clicks search button
+    search = () => {
+        // check if fields are empty
+        if (!this.isEmptyFields()) {
+            console.log("Coming soon");
+            this.setState({ data: ["Yay"] });
+            this.setState({ shouldRedirect: true });
+
+        }
     }
     render() {
+
         
-        // api credentials        
-        const clientId = '2lUQ_W4PCGU7b_AfgDN6Tw';
-        const clientSecret = 'freTjoBNaRNsg2KCBvm83QBVN31kvkkPmvlI15HFRFczsM5RRJpmOErQTlB7f3pl';
         const fakeProps = [{
             img: {
                 src: "https://www.nrn.com/sites/nrn.com/files/styles/article_featured_standard/public/mcdonalds%20test%20alternative%20straws%20seattle%20ban.gif?itok=BADO-i8j",
@@ -80,37 +105,61 @@ class Home extends React.Component {
                 link: "/"
             }]
         }];
+        let { shouldRedirect } = this.state;
+        if (shouldRedirect) {
+            return (
+                <div>
+                        <Route path='/search/:filter/:input/' render={(props) => <Restaurant {...props} data={this.state.data} />} />
+                        <Redirect to={`/search/${this.state.filter}/${this.state.input}/`} />
+                                  
+                    </div>)
+        }
+
         return (
+
             <div>
                 <main role="main">
-                    <div class="input-group container-fluid mb-3">
-                        <div className="row col-lg-12 offset-lg-2" style = {{paddingTop : "130px"}}>
-                            <div className="input-group-prepend">
-                                <button className="btn btn-primary btn-lg dropdown-toggle offset-lg-1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
-                                <div class="dropdown-menu">
-                                    <button class="dropdown-item" value = "Restaurant" type="button">Action</button>
-                                    <button class="dropdown-item" type="button">Another action</button>
-                                    <button class="dropdown-item" type="button">Something else here</button>
-                                </div>
+                    <div style={{ fontSize: "65px" }} className="align-text-center h1">Search</div>
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                            <div className="dropdown-menu">
+
+                                <button className="dropdown-item" onClick={this.filterChanged} value="Restaurant" type="button">Restaurant</button>
+                                <button className="dropdown-item" onClick={this.filterChanged} value="Review" type="button">Review</button>
+                                <button className="dropdown-item" onClick={this.filterChanged} value="Food" type="button">Food</button>
+
                             </div>
-                            <input type="text" class="col-lg-7 form-control" aria-label="Text input with dropdown button" />
                         </div>
+                        <input onChange={this.inputChanged} type="text" className="form-control" aria-label="Text input with dropdown button" />
+                        <button onClick={this.search} type="button" className="btn btn-lg ml-3 btn-primary">Search</button>
                     </div>
-                    <div class="album py-5 bg-light">
-                        <div class="container">
-                            <div class="row">
+
+                    {/* <div className="ml-5 input-group container-fluid mb-3">
+                        <div className="" style={{ paddingTop: "130px" }}>
+                            <div className=" row input-group-prepend">
+                                <button className="btn btn-primary btn-lg dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
+
+                            </div>
+                            <input type="text" onChange={this.inputChanged} className="form-control" aria-label="Text input with dropdown button" />
+                           
+                        </div>
+                    </div> */}
+                    <div className="album py-5 bg-light">
+                        <div className="container">
+                            <div className="row">
                                 {
-                                    fakeProps.map(props => (<div class="col-md-4">
-                                        <div class="card mb-4 shadow-sm">
-                                            <img class="card-img-top" data-src={props.img.src} alt="Card image cap" />
-                                            <div class="card-body">
-                                                <p class="card-text">{props.description}}</p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary" onClick={() => window.location = props.buttons[0].link}>{props.buttons[0].text}</button>
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary">{props.buttons[1].text}</button>
+                                    fakeProps.map(props => (<div className="col-md-4">
+                                        <div className="card mb-4 shadow-sm">
+                                            <img className="card-img-top" data-src={props.img.src} alt="Card image cap" />
+                                            <div className="card-body">
+                                                <p className="card-text">{props.description}}</p>
+                                                <div className="d-flex justify-content-between align-items-center">
+                                                    <div className="btn-group">
+                                                        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => window.location = props.buttons[0].link}>{props.buttons[0].text}</button>
+                                                        <button type="button" className="btn btn-sm btn-outline-secondary">{props.buttons[1].text}</button>
                                                     </div>
-                                                    <small class="text-muted">9 mins</small>
+                                                    <small className="text-muted">9 mins</small>
                                                 </div>
                                             </div>
                                         </div>

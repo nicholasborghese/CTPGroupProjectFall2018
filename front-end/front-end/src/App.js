@@ -4,7 +4,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
+  Switch
 } from "react-router-dom";
 import Main from "./components/auth_components/Main";
 import Home from "./components/auth_components/Home";
@@ -13,6 +13,7 @@ import Login from "./components/auth_components/Login";
 import PrivateRoute from "./components/auth_components/PrivateRoute";
 import SignUp from "./components/auth_components/SignUp";
 import SignOut from "./components/auth_components/SignOut";
+import Restaurant from './components/auth_components/Restaurant';
 class App extends Component {
   render() {
     
@@ -23,7 +24,10 @@ class App extends Component {
       <Main>
       {/* All routes of the application */}
       <Switch>
-      <Route path = "/home" component = {Home}></Route>
+      <Route exact path = "/" component = {Home}>
+      </Route>
+      <Route exact path = "/search/:filter/:input/" component = {Restaurant
+      } />
       <PrivateRoute path="/protected" component={Protected}/>
       <Route path="/signout" component={SignOut}/>
       <Route path = "/login" component = {Login}></Route>

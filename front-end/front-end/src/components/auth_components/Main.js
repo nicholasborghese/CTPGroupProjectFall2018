@@ -31,7 +31,7 @@ function Main(props) {
                 </button>
                 <div className=" text-left collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item"><Link className="navbar-brand nav-link" to="/home" >Home</Link></li>
+                        <li className="nav-item"><Link className="navbar-brand nav-link" to="/" >Home</Link></li>
                         <li className="nav-item" ><Link className="navbar-brand nav-link" to="/protected">Profile</Link></li>
                         <li className="nav-item"><Link className="navbar-brand nav-link" to="/login">Login</Link></li>
                         <li className="nav-item "><Link className=" navbar-brand nav-link" to="/signup">Sign Up</Link></li>
