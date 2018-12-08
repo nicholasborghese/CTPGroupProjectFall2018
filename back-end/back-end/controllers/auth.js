@@ -39,7 +39,16 @@ router.post('/login',
       
     });
   });
+router.get('/', (req, res) => {
+    res.json({
+      id: req.user.id,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      email: req.user.email
 
+    });
+  });
+ 
   router.get('/logout', (req, res) => {
     req.logout();
     res.sendStatus(200);
