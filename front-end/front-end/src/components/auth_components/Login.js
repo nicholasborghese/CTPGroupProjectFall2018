@@ -52,7 +52,7 @@ class Login extends React.Component {
     let error = this.state.error ? this.state.error + " 😩" : "";
     if (redirectToReferrer) {
       this.setState({ error: "" });
-      return <Redirect to={from} />;
+      return <Redirect to= "/" />;
     }
 
     return(

@@ -45,6 +45,7 @@ class Home extends React.Component {
 
         }
     }
+    
     render() {
 
         
@@ -125,9 +126,9 @@ class Home extends React.Component {
                             <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
                             <div className="dropdown-menu">
 
-                                <button className="dropdown-item" onClick={this.filterChanged} value="Restaurant" type="button">Restaurant</button>
+                                <button className="dropdown-item" onClick={this.filterChanged} value="Name" type="button">Name</button>
                                 <button className="dropdown-item" onClick={this.filterChanged} value="Review" type="button">Review</button>
-                                <button className="dropdown-item" onClick={this.filterChanged} value="Food" type="button">Food</button>
+                                
 
                             </div>
                         </div>
@@ -175,47 +176,3 @@ class Home extends React.Component {
 export default Home;
 
 
-// export const yelpSearch = (keywords, filterType, location) => dispatch => {
-//   // authenticate with yelp API, obtain an access token
-//   yelp.accessToken(clientId, clientSecret).then(response => {
-//       const client = yelp.client(response.jsonBody.access_token);
-
-//       if (filterType === 'delivery') {
-//           client.transactionSearch('delivery', {
-//               location: location
-//           }).then(response => {
-//               const restaurants = response.jsonBody.businesses
-//               dispatch(getByDelivery(restaurants))
-//           }).catch(e => {
-//               console.log(e);
-//           });
-//       } else if (filterType === 'reviews') {
-//           client.reviews(keywords).then(response => {
-//               const reviews = response.jsonBody.reviews;
-//               dispatch(getReviews(reviews));
-//           }).catch(e => {
-//               console.log(e);
-//           });
-//       } else if (filterType === 'keywords') {
-//           const searchRequest = {
-//               term: keywords,
-//               location: location
-//           };
-//           client.search(searchRequest).then(response => {
-//               const restaurants = response.jsonBody.businesses;
-//               dispatch(getByKeywords(restaurants))
-//           })
-//       }else { // search nearby restaurants nearby
-//           const searchRequest = {
-//               term: "restaurant",
-//               location: location
-//           };
-//           client.search(searchRequest).then(response => {
-//               const restaurants = response.jsonBody.businesses;
-//               dispatch(getNearBy(restaurants))
-//           })
-//       }
-//   }).catch(e => {
-//       console.log(e);
-//   });
-// };

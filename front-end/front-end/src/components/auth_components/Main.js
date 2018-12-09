@@ -39,6 +39,7 @@ function Main(props) {
                             <li className="nav-item pl-3"> <span className="navbar-brand mb-0 h1">{greetingMsg}</span></li>}
                         {Auth.activeUser && <SignOut />}
                     </ul>
+                    
                 </div>
             </nav>
             <div className="main">
