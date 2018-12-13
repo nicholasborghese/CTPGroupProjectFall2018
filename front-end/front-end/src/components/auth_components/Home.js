@@ -60,7 +60,7 @@ class Home extends React.Component {
                 text: "Website",
                 link: "https://www.mcdonalds.com/us/en-us.html"
             }, {
-                text: "btn 2",
+                text: "Directions",
                 link: "/"
             }]
         }, {
@@ -74,7 +74,7 @@ class Home extends React.Component {
                 text: "Website",
                 link: "https://www.subway.com/en-us"
             }, {
-                text: "btn 2",
+                text: "Directions",
                 link: "/"
             }]
         }, {
@@ -88,7 +88,7 @@ class Home extends React.Component {
                 text: "Website",
                 link: "https://www.dominos.com/en/"
             }, {
-                text: "btn 2",
+                text: "Directions",
                 link: "/"
             }]
         }, {
@@ -102,7 +102,7 @@ class Home extends React.Component {
                 text: "Website",
                 link: "https://serafinarestaurant.com/"
             }, {
-                text: "btn 2",
+                text: "Directions",
                 link: "/"
             }]
         }, {
@@ -116,7 +116,21 @@ class Home extends React.Component {
                 text: "Website",
                 link: "https://www.carminesnyc.com/"
             }, {
-                text: "btn 2",
+                text: "Directions",
+                link: "/"
+            }]
+        }, {
+            img: {
+                src: "https://txktoday.com/wp-content/uploads/2018/08/chick-fil-a.jpg",
+                alt: "Chick-fil-A"
+            },
+            title: "Chick-fil-A",
+            description: "Chick-fil-A",
+            buttons: [{
+                text: "Website",
+                link: "https://www.chick-fil-a.com/"
+            }, {
+                text: "Directions",
                 link: "/"
             }]
         }];
@@ -174,7 +188,6 @@ class Home extends React.Component {
                                                         <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => window.location = props.buttons[0].link}>{props.buttons[0].text}</button>
                                                         <button type="button" className="btn btn-sm btn-outline-secondary">{props.buttons[1].text}</button>
                                                     </div>
-                                                    <small className="text-muted">9 mins</small>
                                                 </div>
                                             </div>
                                         </div>
