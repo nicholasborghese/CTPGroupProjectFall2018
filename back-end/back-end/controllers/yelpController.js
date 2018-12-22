@@ -6,7 +6,6 @@ const client = yelp.client(api_key);
 
 const router = express.Router();
 router.post('/', (req, res) => {
-
     console.log(req.body.filter);
     console.log(req.body.term);
         client.search({
@@ -19,9 +18,6 @@ router.post('/', (req, res) => {
             console.log(e);
         });
 });
-//   res.json({
-//     msg: "Successful POST to '/' route"
-//   });
-// });
+
 
 module.exports = router;

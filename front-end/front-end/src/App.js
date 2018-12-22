@@ -14,6 +14,7 @@ import PrivateRoute from "./components/auth_components/PrivateRoute";
 import SignUp from "./components/auth_components/SignUp";
 import SignOut from "./components/auth_components/SignOut";
 import Restaurant from './components/auth_components/Restaurant';
+import Upcoming from './components/auth_components/Upcoming';
 class App extends Component {
   render() {
     
@@ -32,6 +33,7 @@ class App extends Component {
       <Route path="/signout" component={SignOut}/>
       <Route path = "/login" component = {Login}></Route>
       <Route path ="/signup" component = {SignUp}></Route>
+      <Route path ="/upcoming" component = {Upcoming}></Route>
       </Switch>
       </Main>
       </div>

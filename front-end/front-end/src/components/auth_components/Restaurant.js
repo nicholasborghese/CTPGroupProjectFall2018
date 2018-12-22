@@ -19,8 +19,8 @@ class Restaurant extends React.Component{
         let {filter} = this.props.match.params.filter;
         let search = this.props.match.params.input;
         axios.post('/yelp', {term : search}).then(response =>{
-            const restaurant = response.data.results.businesses[0];
-            console.log(restaurant);
+            const restaurants = response.data.results.businesses[0];
+            this.setState({data : restaurants});
         }).catch(error =>{
             console.log(error);
         })

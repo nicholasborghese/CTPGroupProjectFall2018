@@ -35,6 +35,7 @@ function Main(props) {
                         <li className="nav-item" ><Link className="navbar-brand nav-link" to="/protected">Profile</Link></li>
                         <li className="nav-item"><Link className="navbar-brand nav-link" to="/login">Login</Link></li>
                         <li className="nav-item "><Link className=" navbar-brand nav-link" to="/signup">Sign Up</Link></li>
+                        <li className="nav-item "><Link className=" navbar-brand nav-link" to="/upcoming">Coming Soon</Link></li>
                         {greetingMsg &&
                             <li className="nav-item pl-3"> <span className="navbar-brand mb-0 h1">{greetingMsg}</span></li>}
                         {Auth.activeUser && <SignOut />}
